@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        
+        <meta charset="utf-8" name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+        <title></title>
+        <link rel="stylesheet" href="./CSS/estilo.css" />
+        <script  src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+        <script type="text/javascript" src="./JS/slides.js"></script>
+        
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=weather"></script>
+           <script>
+               var mapOptions;
+               function initialize() {
+                   mapOptions = {
+                       zoom: 13,
+                       center: new google.maps.LatLng(-2.152084, -79.952938),
+                       mapTypeId: google.maps.MapTypeId.ROADMAP
+                   };
+
+                   var map = new google.maps.Map(document.getElementById('solomap'), mapOptions);
+
+                   var weatherLayer = new google.maps.weather.WeatherLayer({ temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS });
+                   weatherLayer.setMap(map);
+
+                   var trafficLayer = new google.maps.TrafficLayer();
+                   trafficLayer.setMap(map);
+                   var transitLayer = new google.maps.TransitLayer();
+
+                   transitLayer.setMap(map);
+                   var cloudLayer = new google.maps.weather.CloudLayer();
+                   cloudLayer.setMap(map);
+               }
+
+               function actualizarMapa(elemento) {
+                   //mapOptions = null;
+                   
+                   var iden = document.getElementById(elemento.getAttribute("id"));
+                   var ide = iden.getAttribute("id");
+                   var lat, long;
+                   //if (ide == "prosperina")
+                   //if (this.options[0].selected)
+                   if (elemento.options[0].selected)     
+                   {
+                       lat = -2.146771; long = -79.959263;
+                   } 
+                   
+                   if (elemento.options[2].selected)
+                   //if (ide == "centro") 
+                   {
+                       lat = -2.190352; long = -79.885558;
+                   }
+                   if (elemento.options[1].selected)
+                   //if (ide == "norte") 
+                   {
+                       lat = -2.106958; long = -79.915828;
+                   }
+                    if (elemento.options[3].selected)
+                   //if (ide == "sur") 
+                   {
+                       lat = -2.229319; long = -79.898092;
+                   } else {
+                       //lat = -2.146771; long = -79.959263;
+                   }
+
+                   mapOptions = {
+                       zoom: 14,
+                       center: new google.maps.LatLng(lat, long),
+                       mapTypeId: google.maps.MapTypeId.ROADMAP
+                   };
+
+                   var map = new google.maps.Map(document.getElementById('solomap'), mapOptions);
+
+                   var weatherLayer = new google.maps.weather.WeatherLayer({ temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS });
+                   weatherLayer.setMap(map);
+
+                   var trafficLayer = new google.maps.TrafficLayer();
+                   trafficLayer.setMap(map);
+                   var transitLayer = new google.maps.TransitLayer();
+                
+                   transitLayer.setMap(map);
+                   var cloudLayer = new google.maps.weather.CloudLayer();
+                   cloudLayer.setMap(map);
+               }
+
+
+
+
+
+
+
+               google.maps.event.addDomListener(window, 'load', initialize);
+
+        </script>
+
+
+    </head>
+    <body id="fondo1" style:background="./Images/fondo1.jpg">
+        <section id="identificacion" >
+                    <nav id="menuRegistro">
+                        <ul>
+                            <li><a id="meIdentificarse" href="#" >Identificarse</a></li>
+                            <li><a id="meRegistro" href="registro.html" onclick="javascript:registra(this);">Registrarse</a></li>
+                        </ul>
+                    </nav>
+            </section>
+        <section id="all" class="wrapp">
+            <section  id="menuTop" >                
+                <div id="opciones" >
+                    <nav id="menu" class="barraMenu">
+                        <ul>
+                            <li><h3><a class="enlaces" id="mInicio" href="index.html" onclick="javascript:hacerVisible(this);" data-seccion="personal">|  Inicio</a></h3></li>
+							<!--<li class="box"><h3><a class="enlaces"id="mRegistro" href="registro.html" onclick="javascript:hacerVisible(this);" data-seccion="registro">|  Registrate</a></h3></li>-->
+                            <li><h3><a class="enlaces"id="mTransito" href="transito.html" onclick="javascript:hacerVisible(this);" data-seccion="transito">|  Transito</a></h3></li>
+                            <li><h3><a class="enlaces"id="mRutas" href="rutas.html" onclick="javascript:hacerVisible(this);" data-seccion="personal">|  Rutas</a></h3></li>
+                            <li><h3><a class="enlaces"id="mServicio" href="servicios.html" onclick="javascript:hacerVisible(this);" data-seccion="personal">|  Servicio</a></h3></li>
+                            <li><h3><a class="enlaces"id="mContacto" href="contacto.html" onclick="javascript:hacerVisible(this);" data-seccion="personal">|  Contacto</a></h3></li>
+                        </ul>               
+                    </nav>
+                </div>
+                <div id="log" > <img id ="logo"alt="imagen DAW" src="./Images/logo.png" /></div>
+            </section>
+			<section>
+				 <div class="fondo" style="text-align: center" >
+                    <header><b>Titulo1(con el nombre d la compañia)</b></header>        
+                </div>
+			</section>
+            <section id="infoTransito">
+                <div id="Titletransito"> <h2 id="TransitoTitle"> Transito</h2></div>
+                <div> <p id="TransitoInfoP">Si deseas obtener informacion general (clima, inconvenientes, etc) sobre alguna ruta de interes, en esta seccion la podras encontrar</p></div>
+            </section>
+            <section id="centerTransito">
+                <div id="busqueda">
+                    <label id="buscartitle" class="busquedas"> BUSCA INFORMACION DE UN LUGAR</label>
+                        <!--<input type="text" class="busquedas" id="txtbusqueda" name="txtbusqueda" placeholder="Ingresa el lugar aqui"/>-->
+                        <select  class="busquedas" id="txtbusqueda" name="txtbusqueda" onchange="javascript:actualizarMapa(this)">
+                            <option id="prosperina" >Campus Prosperina</option>
+                            <option id="norte" >Sector Norte</option>
+                            <option id="centro" >Sector Centro</option>
+                            <option id="sur" >Sector Sur</option>
+                        </select>
+                        <!--<input type="button" class="busquedas" id="centro" name="botonBuscar" value="Buscar" onclick="javascript:actualizarMapa(this);"/>-->
+                        <div id="infocolors"><p class="labels" style="margin-left: 10%;">Informacion del flujo del trafico:</p><p class="labels" style="margin-left: 6px;"> Rapido</p><div class="route" style="background-color: #34ca17;"></div><div class="route" style="background-color: #ff6a00;"></div><div class="route" style="background-color: #f00;"></div><div class="route" style="background-color: #881408;"></div><p class="labels" style="margin-left: 6px;"> Lento</p></div>
+                </div>
+                <section id="graficosinfo" >
+                    <section id="solomap" class="infomap"style="width: 98%;">
+                        <div id="mapatransito"></div>
+                    </section>
+                    <section id="infonews" class="infos" style=" width: 98%;background-color: #4cff00;"> 
+                        <div id="climalocal" style="width: 45%;float: left"> <!-- www.TuTiempo.net - Ancho:214px - Alto:91px -->
+                        <div style="width: 100%;margin-left: 20%;"><p>GUAYAQUIL</p></div>
+                        <div id="TT_RyTgrxYxYcU9aehUKfqzzzjzDWlU1za2LYEd1siIqkjImo3IG" style="border: none"></div>
+                        <script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_RyTgrxYxYcU9aehUKfqzzzjzDWlU1za2LYEd1siIqkjImo3IG" style="width: 98%;height: 60%;"></script></div>
+                        <div id="noticias" style="width: 50%; float: left"><label>Aqui van las noticias del area</label></div>
+                        <div class="clean"></div> 
+                    </section>                   
+                    
+                </section>
+            </section>
+
+        </section>
+        <div id="finalfooter">
+                <div id="logos">                    
+                        <p>2014 powered by</p>
+                        <img id="img_maac" title="Marlon-Adrian-Angel-Christian" alt="no disponible" src="./Images/maac.JPG"/>
+                    
+                </div>
+            <ul id="redes_logos">
+                <li>
+                    <a href="http://www.facebook.com"><img id="img_fb_logo" title="Facebook" alt="fb" src="./Images/fb_logo.JPG" height="40" width="40"/></a>
+                </li>
+                <li>
+                    <a href="http://www.twitter.com"><img id="img_tw_logo" title="Twitter" alt="tw" src="./Images/tw_logo.JPG" height="40" width="40"/></a>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+         <link rel="stylesheet" href="./CSS/estilo.css" />
+        <script  src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+        <script type="text/javascript" src="./JS/slides.js"></script>
+        <script type="text/javascript" src="./JS/registro.js"></script>
+    </head>
+    <body id="fondo1" style:background="./Images/fondo1.jpg">
+        <section id="identificacion" >
+                    <nav id="menuRegistro">
+                        <ul>
+                            <li><a id="meIdentificarse" href="#">Identificarse</a></li>
+                            <li><a id="meRegistro" href="registro.html" onclick="javascript:registra(this);">Registrarse</a></li>
+                        </ul>
+                    </nav>
+            </section>
+        <section id="all">
+            <section  id="menuTop" >                  
+                <div id="opciones" >
+                    <nav id="menu" class="barraMenu">
+                        <ul>
+                            <li class="box"><h3><a class="enlaces" id="mInicio" href="index.html" onclick="javascript:hacerVisible(this);" data-seccion="personal">|  Inicio</a></h3></li>
+							<!--<li class="box"><h3><a class="enlaces"id="mRegistro" href="registro.html" onclick="javascript:hacerVisible(this);" data-seccion="registro">|  Registrate</a></h3></li>-->
+                            <li class="box"><h3><a class="enlaces"id="mTransito" href="transito.html" onclick="javascript:hacerVisible(this);" data-seccion="transito">|  Transito</a></h3></li>
+                            <li class="box"><h3><a class="enlaces"id="mRutas" href="rutas.html" onclick="javascript:hacerVisible(this);" data-seccion="rutas">|  Rutas</a></h3></li>
+                            <li class="box"><h3><a class="enlaces"id="mServicio" href="servicios.html" onclick="javascript:hacerVisible(this);" data-seccion="servicio">|  Servicio</a></h3></li>
+                            <li class="box"><h3><a class="enlaces"id="mContacto" href="contacto.html" onclick="javascript:hacerVisible(this);" data-seccion="contacto">|  Contacto</a></h3></li>
+                        </ul>               
+                    </nav>
+                </div>
+                <div id="log" > <img id ="logo"alt="imagen DAW" src="Images/logo.png" /></div>
+            </section>
+            <section id="central"></section>
+            <section id="info"></section>
+            <section id="footerinfo"></section>
+            <section id="slidesIm" class="fondo2">
+            <div >
+                </div>
+				<div class="fondo" style="text-align: center">
+                    <header><b style="font-size: 100%;">Titulo1(con el nombre d la compañia)</b></header>        
+                </div>
+                <div class="slide">
+					 <figure style="width: 100%;height: 100%;">
+						  <img class="img1" alt="alt img1" src="./Images/11.jpg" />
+						  <img class="img2" alt="alt img2" src="./Images/22.jpg" />
+						  <img class="img3" alt="alt img3" src="./Images/33.jpg" />
+					 </figure>
+                </div>
+				<div class="fondo" style="text-align: center">
+                    <header><b style="font-size: 100%;">Titulo2(lo que ofrece la compañia)</b></header>        
+                </div>
+                <div class="inde">
+                    <div class="imagen"  >
+                        <figure style="width: 100%;height: 100%;margin: 0%;">
+                          <img  alt="alt img1" class="divimagen" src="./Images/1.png" width="160px" height="150px"  /> <!--border=0 hspace= 10-->
+                            <p class="divimagen"><b>servicio1</b></p>
+                        </figure>
+                        
+                    </div>
+                    <div class="imagen" >
+                        <figure style="width: 100%;height: 100%;margin: 0%;">
+                          <img  alt="alt img 2" class="divimagen" src="./Images/2.png" width="160px" height="150px" />
+                            <p class="divimagen"><b>servicio2</b></p>
+                        </figure>
+                        
+                    </div>
+                    <div class="imagen" >
+                        <figure style="width: 100%;height: 100%;margin: 0%;">
+                          <img  alt="alt img3" class="divimagen" src="./Images/3.png" width="160px" height="150px" />
+                            <p class="divimagen"><b>servicio3</b></p>
+                        </figure>
+                        
+                    </div>
+                    <div class="imagen" >
+                        <figure style="width: 100%;height: 100%;margin: 0%;">
+                          <img  alt="alt img3" class="divimagen" src="./Images/4.png"width="160px" height="150px" />
+                            <p class="divimagen"><b>servicio4</b></p>
+                        </figure>
+                        
+                    </div>
+                </div>
+                </section>
+
+        </section>
+		
+		            <div id="finalfooter">
+                <div id="logos">                    
+                        <p>2014 powered by</p>
+                        <img id="img_maac" title="Marlon-Adrian-Angel-Christian" alt="no disponible" src="Images/maac.JPG"/>
+                    
+                </div>
+            <ul id="redes_logos">
+                <li>
+                    <a href="http://www.facebook.com"><img id="img_fb_logo" title="Facebook" alt="fb" src="Images/fb_logo.JPG" height="40" width="40"/></a>
+                </li>
+                <li>
+                    <a href="http://www.twitter.com"><img id="img_tw_logo" title="Twitter" alt="tw" src="Images/tw_logo.JPG" height="40" width="40"/></a>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

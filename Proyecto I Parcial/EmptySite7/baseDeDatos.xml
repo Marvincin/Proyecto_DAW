@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<estudiantes>
+    <estudiante>
+        <id>1</id>
+        <nombre>Jaime Adrian</nombre>
+        <apellido>Aguilar Romero</apellido>
+        <correo>jaaguila@espol.edu.ec</correo>
+        <direccion>Marcelino Maridueña</direccion>
+        <sexo>Masculino</sexo>
+    </estudiante>
+    <estudiante>
+        <id>2</id>
+        <nombre>Marlon Vinicio</nombre>
+        <apellido>Loayza Feijóo</apellido>
+        <correo>marviloa@espol.edu.ec</correo>
+        <direccion>Sauces 9 Mz 565 Villa 12</direccion>
+        <sexo>Masculino</sexo>
+    </estudiante>
+    <estudiante>
+        <id>3</id>
+        <nombre>Angel Josue</nombre>
+        <apellido>Gonzalez Benites</apellido>
+        <correo>ajgonzal@espol.edu.ec</correo>
+        <direccion>Sur Este Portete</direccion>        
+        <sexo>Masculino</sexo>
+    </estudiante>
+    <estudiante>
+        <id>4</id>
+        <nombre>Christian Roberto</nombre>
+        <apellido>Vergara Marcillo</apellido>
+        <correo>chroverg@espol.edu.ec</correo>
+        <direccion>Km 8 1/2 vía a Daule Cdla Alegría Mz. 1530 villa 20</direccion>
+        <sexo>Masculino</sexo>
+    </estudiante>
+</estudiantes>
