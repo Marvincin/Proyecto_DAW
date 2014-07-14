@@ -198,6 +198,7 @@ function cargarNombres(e){
             divS.appendChild(document.createElement("br"));
             botnre.setAttribute("class", "botoncentro");
             botnre.setAttribute("style", "text-align: center");
+            botnre.setAttribute("onclick", "javascript:verificarRegistro()");
             divS.appendChild(botnre);
         }
     }
@@ -256,8 +257,8 @@ function validartexto(ele){
         }
     }
     if(ele.getAttribute("id")=="placa"){
-        var patron = '^[A-Z a-z]{3}-[0-9]{3,4}';
-        var patron1 = '^[A-Z a-z]{3}[0-9]{3,4}';
+        var patron = '^[A-Z a-z]{3}-[0-9]{3,4}$';
+        var patron1 = '^[A-Z a-z]{3}[0-9]{3,4}$';
         var err = document.getElementById("carrito");
         if((ele.value.match(patron)) || (ele.value.match(patron1)) && ele.value != ''){
             err.innerHTML = "Correcto";
@@ -278,22 +279,69 @@ function verificarRegistro(){
     var expresiontel = "^09{1}[0-9]{8}$";
     var patron = '^[A-Z a-z]{3}-[0-9]{3,4}';
     var patron1 = '^[A-Z a-z]{3}[0-9]{3,4}';
-    var tel, pla, tw, fb,div;
+    var tel, pla, tw, fb,div,div2,btn;
     tel = document.getElementById("texttelf");
     tw = document.getElementById("texttwitter");
     fb = document.getElementById("textface");
     pla = document.getElementById("placa");
-        if (tel.value.match(expresiontel) && ele.value != ''){
-            if(fb.value.indexOf("https://www.facebook.com/") !=-1|| fb.value.indexOf("http://www.facebook.com/")!=-1){
-                if((tw.value.indexOf("https://www.twitter.com/") !=-1|| tw.value.indexOf("http://www.twitter.com/")!=-1 || tw.value.indexOf("https://twitter.com/")) != -1){
-                    if(pla.value.match(patron) || (pla.value.match(patron1))){
-                        div = document.createElement("div");
-                        div.setAttribute("class","divregistro");
+    if (tel.value.match(expresiontel) && tel.value != '') {
+        if (fb.value.indexOf("https://www.facebook.com/") != -1 || fb.value.indexOf("http://www.facebook.com/") != -1) {
+            if ((tw.value.indexOf("https://www.twitter.com/") != -1 || tw.value.indexOf("http://www.twitter.com/") != -1 || tw.value.indexOf("https://twitter.com/")) != -1) {
+                if(document.getElementsByName("opcion")[0].checked == true){
+               if (pla.value.match(patron) || (pla.value.match(patron1))) {
+                    div = document.createElement("div");
+                    div.setAttribute("id", "registrocompleto");
+                    div2 = document.createElement("div");
+                    btn = document.createElement("input");
+                    div2.setAttribute("class", "divdentrodiv");
+                    div.setAttribute("class", "divregistro");
+                    btn.setAttribute("type", "button");
+                    div2.setAttribute("style", "text-align: center");
+                    btn.setAttribute("onclick", "javascript: salirdiv(this)");
+                    btn.setAttribute("value", "Completar Registro");
+                    div2.innerHTML = "Se ha completado su registro";
+                    div.appendChild(div2);
+                    div.style.display = "block";
+                }
+                else{
+                                        div = document.createElement("div");
+                    div.setAttribute("id", "registrocompleto");
+                    div2 = document.createElement("div");
+                    btn = document.createElement("input");
+                    div2.setAttribute("class", "divdentrodiv");
+                    div.setAttribute("class", "divregistro");
+                    btn.setAttribute("type", "button");
+                    div2.setAttribute("style", "text-align: center");
+                    btn.setAttribute("onclick", "javascript: salirdiv(this)");
+                    btn.setAttribute("value", "Completar Registro");
+                    div2.innerHTML = "Se ha completado su registro";
+                    div.appendChild(div2);
+                    div.style.display = "block";
                 }
             }
+            }
         }
-        else{
-        }
+    }
+    else {
+        div = document.createElement("div");
+        div.setAttribute("id", "registrocompleto");
+        div2 = document.createElement("div");
+        btn = document.createElement("input");
+        div2.setAttribute("class", "divdentrodiv");
+        div.setAttribute("class", "divregistro");
+        btn.setAttribute("type", "button");
+        btn.setAttribute("value", "Aceptar");
+        btn.setAttribute("onclick", "javascript: salirdiv(this)");
+        div2.setAttribute("style", "text-align: center");
+        div2.innerHTML = "Complete correctamente los campos";
+        div.appendChild(div2);
+        div.style.display = "block";
+    }
+}
+
+function salirdiv(ele){
+    divdp = document.getElementById("registrocompleto");
+        divdp.style.display = "none";
 }
 function habilitarCarro(e){
     if (e.value=="Si")
