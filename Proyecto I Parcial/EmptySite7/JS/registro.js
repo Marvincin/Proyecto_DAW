@@ -46,14 +46,14 @@ function cargarNombres(e){
             textdir.setAttribute("class", "textput");
             texttel.setAttribute("class", "textput");
             textpla.setAttribute("class", "textput");
-            areadescrip = document.createElement("input");
+            areadescrip = document.createElement("textarea");
+            areadescrip.setAttribute("class", "textput");
             textfa = document.createElement("input");
             texttw = document.createElement("input");
             textfa.setAttribute("class", "textput");
             texttw.setAttribute("class", "textput");
             textnom.setAttribute("type", "text");
             textfa.setAttribute("type", "text");
-            areadescrip.setAttribute("type", "textarea");
             texttw.setAttribute("type", "text");
             textpla.setAttribute("type", "text");
             textape.setAttribute("type", "text");
@@ -166,26 +166,37 @@ function cargarNombres(e){
             divS.appendChild(document.createElement("br"));
             divS.appendChild(document.createElement("br"));
             divS.appendChild(document.createTextNode("Tiene carro:   "));
+            radcarN.setAttribute("onclick", "javascript:habilitarCarro(this)");
             radcarS.setAttribute("onclick", "javascript:habilitarCarro(this)");
             divS.appendChild(radcarS);
             divS.appendChild(document.createTextNode("Si"));
             divS.appendChild(radcarN);
             radcarN.setAttribute("checked", "true");
-            radcarN.setAttribute("onclick", "javascript:habilitarCarro(this)");
             divS.appendChild(document.createTextNode("No"));
             divS.appendChild(document.createElement("br"));
             divS.appendChild(document.createElement("br"));
             divS.appendChild(document.createElement("br"));
+            errorMess = document.createElement("label");
+            errorMess.setAttribute("id","carrito");
+            textpla.setAttribute("onblur", "javascript:validartexto(this)");
             divS.appendChild(document.createTextNode("Placa: "));
+            textpla.setAttribute("placeholder", "AAA-0000");
             divS.appendChild(textpla);
+            divS.appendChild(errorMess);
             divS.appendChild(document.createElement("br"));
             divS.appendChild(document.createElement("br"));
             divS.appendChild(document.createElement("br"));
             divS.appendChild(document.createTextNode("Descripción del carro:   "));
+            divS.appendChild(document.createElement("br"));
+            areadescrip.setAttribute("placeholder", "Describa aquí su carro");
+            areadescrip.setAttribute("rows","5");
+            areadescrip.setAttribute("cols","30");
+            areadescrip.setAttribute("style", "resize:none");
             divS.appendChild(areadescrip);
             divS.appendChild(document.createElement("br"));
             divS.appendChild(document.createElement("br"));
             divS.appendChild(document.createElement("br"));
+            botnre.setAttribute("class", "botoncentro");
             botnre.setAttribute("style", "text-align: center");
             divS.appendChild(botnre);
         }
@@ -244,6 +255,45 @@ function validartexto(ele){
             err.style.color = "red";
         }
     }
+    if(ele.getAttribute("id")=="placa"){
+        var patron = '^[A-Z a-z]{3}-[0-9]{3,4}';
+        var patron1 = '^[A-Z a-z]{3}[0-9]{3,4}';
+        var err = document.getElementById("carrito");
+        if((ele.value.match(patron)) || (ele.value.match(patron1)) && ele.value != ''){
+            err.innerHTML = "Correcto";
+            err.style.float = "right";
+            err.style.display = "block";
+            err.style.color = "green";
+        }
+        else{
+            
+            err.innerHTML = "* Incorrecto";
+            err.style.display = "block";
+            err.style.float = "right";
+            err.style.color = "red";
+        }
+    }
+}
+function verificarRegistro(){
+    var expresiontel = "^09{1}[0-9]{8}$";
+    var patron = '^[A-Z a-z]{3}-[0-9]{3,4}';
+    var patron1 = '^[A-Z a-z]{3}[0-9]{3,4}';
+    var tel, pla, tw, fb,div;
+    tel = document.getElementById("texttelf");
+    tw = document.getElementById("texttwitter");
+    fb = document.getElementById("textface");
+    pla = document.getElementById("placa");
+        if (tel.value.match(expresiontel) && ele.value != ''){
+            if(fb.value.indexOf("https://www.facebook.com/") !=-1|| fb.value.indexOf("http://www.facebook.com/")!=-1){
+                if((tw.value.indexOf("https://www.twitter.com/") !=-1|| tw.value.indexOf("http://www.twitter.com/")!=-1 || tw.value.indexOf("https://twitter.com/")) != -1){
+                    if(pla.value.match(patron) || (pla.value.match(patron1))){
+                        div = document.createElement("div");
+                        div.setAttribute("class","divregistro");
+                }
+            }
+        }
+        else{
+        }
 }
 function habilitarCarro(e){
     if (e.value=="Si")
