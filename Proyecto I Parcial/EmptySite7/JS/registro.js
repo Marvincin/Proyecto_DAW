@@ -276,6 +276,7 @@ function validartexto(ele){
     }
 }
 function verificarRegistro(){
+    var div = document.getElementById("registrocompleto");
     var expresiontel = "^09{1}[0-9]{8}$";
     var patron = '^[A-Z a-z]{3}-[0-9]{3,4}';
     var patron1 = '^[A-Z a-z]{3}[0-9]{3,4}';
@@ -289,37 +290,27 @@ function verificarRegistro(){
             if ((tw.value.indexOf("https://www.twitter.com/") != -1 || tw.value.indexOf("http://www.twitter.com/") != -1 || tw.value.indexOf("https://twitter.com/")) != -1) {
                 if(document.getElementsByName("opcion")[0].checked == true){
                if (pla.value.match(patron) || (pla.value.match(patron1))) {
-                    div = document.createElement("div");
-                    div.setAttribute("id", "registrocompleto");
                     div2 = document.createElement("div");
                     btn = document.createElement("input");
-                    div2.setAttribute("class", "divdentrodiv");
-                    div.setAttribute("class", "divregistro");
                     btn.setAttribute("type", "button");
+                    div2.setAttribute("class", "divdentrodiv");
                     div2.setAttribute("style", "text-align: center");
                     btn.setAttribute("onclick", "javascript: salirdiv(this)");
                     btn.setAttribute("value", "Completar Registro");
                     div2.innerHTML = "Se ha completado su registro";
                     div.appendChild(div2);
-                    div.style.zIndex = 2;
-                    document.getElementById("fondo1").appendChild(div);
                     div.style.display = "block";
                 }
                 else{
-                                        div = document.createElement("div");
-                    div.setAttribute("id", "registrocompleto");
                     div2 = document.createElement("div");
                     btn = document.createElement("input");
                     div2.setAttribute("class", "divdentrodiv");
-                    div.setAttribute("class", "divregistro");
                     btn.setAttribute("type", "button");
                     div2.setAttribute("style", "text-align: center");
                     btn.setAttribute("onclick", "javascript: salirdiv(this)");
                     btn.setAttribute("value", "Completar Registro");
                     div2.innerHTML = "Se ha completado su registro";
                     div.appendChild(div2);
-                    div.style.zIndex = 2;
-                    document.getElementById("fondo1").appendChild(div);
                     div.style.display = "block";
                 }
             }
@@ -327,8 +318,6 @@ function verificarRegistro(){
         }
     }
     else {
-        div = document.createElement("div");
-        div.setAttribute("id", "registrocompleto");
         div2 = document.createElement("div");
         btn = document.createElement("input");
         div2.setAttribute("class", "divdentrodiv");
@@ -339,8 +328,6 @@ function verificarRegistro(){
         div2.setAttribute("style", "text-align: center");
         div2.innerHTML = "Complete correctamente los campos";
         div.appendChild(div2);
-        div.style.zIndex = 2;
-            document.getElementById("fondo1").appendChild(div);
         div.style.display = "block";
     }
 }
