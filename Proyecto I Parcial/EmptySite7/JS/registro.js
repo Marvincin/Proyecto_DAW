@@ -301,6 +301,8 @@ function verificarRegistro(){
                     btn.setAttribute("value", "Completar Registro");
                     div2.innerHTML = "Se ha completado su registro";
                     div.appendChild(div2);
+                    div.style.zIndex = 2;
+                    document.getElementById("fondo1").appendChild(div);
                     div.style.display = "block";
                 }
                 else{
@@ -316,6 +318,8 @@ function verificarRegistro(){
                     btn.setAttribute("value", "Completar Registro");
                     div2.innerHTML = "Se ha completado su registro";
                     div.appendChild(div2);
+                    div.style.zIndex = 2;
+                    document.getElementById("fondo1").appendChild(div);
                     div.style.display = "block";
                 }
             }
@@ -335,6 +339,8 @@ function verificarRegistro(){
         div2.setAttribute("style", "text-align: center");
         div2.innerHTML = "Complete correctamente los campos";
         div.appendChild(div2);
+        div.style.zIndex = 2;
+            document.getElementById("fondo1").appendChild(div);
         div.style.display = "block";
     }
 }
@@ -342,6 +348,7 @@ function verificarRegistro(){
 function salirdiv(ele){
     divdp = document.getElementById("registrocompleto");
         divdp.style.display = "none";
+        divdp.style.zIndex = -1;
 }
 function habilitarCarro(e){
     if (e.value=="Si")
