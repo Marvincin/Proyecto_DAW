@@ -10,13 +10,19 @@
     </head>
     <body id="fondo1">
         <div id="registrocompleto" class="divregistro">
-            ola q ase
         </div>
+
         <section id="identificacion" >
                     <nav id="menuRegistro">
                         <ul>
-                            <li><a id="meIdentificarse" href="#" >Identificarse</a></li>
-                            
+                            <li><a id="meIdentificarse" onclick="javascript:identifica(this);" href="#">Identificarse</a></li>
+                            <li><a id="meRegistro" href="registro.html" onclick="javascript:registra(this);">Registrarse</a></li>
+                        </ul>
+                    </nav>
+                    <nav id="logout" style="display:none">
+                        <ul>
+                            <li><a id="sesionA"></a></li>
+                            <li><a id="salida" href="index.html" onclick="javascript:salir()">Logout</a></li>
                         </ul>
                     </nav>
             </section>
@@ -26,7 +32,6 @@
                     <nav id="menu" class="barraMenu">
                         <ul>
                             <li class="box"><h3><a class="enlaces" id="mInicio" href="index.html" onclick="javascript:hacerVisible(this);" data-seccion="personal">|  Inicio</a></h3></li>
-							<!--<li class="box"><h3><a class="enlaces"id="mRegistro" href="registro.html" onclick="javascript:hacerVisible(this);" data-seccion="registro">|  Registrate</a></h3></li>-->
                             <li class="box"><h3><a class="enlaces"id="mTransito" href="transito.html" onclick="javascript:hacerVisible(this);" data-seccion="transito">|  Transito</a></h3></li>
                             <li class="box"><h3><a class="enlaces"id="mRutas" href="rutas.html" onclick="javascript:hacerVisible(this);" data-seccion="rutas">|  Rutas</a></h3></li>
                             <li class="box"><h3><a class="enlaces"id="mServicio" href="servicios.html" onclick="javascript:hacerVisible(this);" data-seccion="servicio">|  Servicio</a></h3></li>
@@ -43,7 +48,13 @@
                 </div>
                 <section class="fondo2">
                     <div id="divForm1" class="divForm">
-                    </div>  
+                    </div> 
+                    <div id="popupide">
+                        <div id="identificacionuser" class="login" style="display: none">
+			                <input type="text" placeholder="usuario@espol.edu.ec" name="user"><br>
+			                <input type="button" value="Login">
+		                </div> 
+                    </div>
                 </section>
             </section>
          <div id="finalfooter">

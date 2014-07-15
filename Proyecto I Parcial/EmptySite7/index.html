@@ -8,15 +8,22 @@
         <script  src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
         <script type="text/javascript" src="./JS/slides.js"></script>
         <script type="text/javascript" src="./JS/registro.js"></script>
+        <script type="text/javascript" src="./JS/logueo .js"></script>
     </head>
     <body id="fondo1" style:background="./Images/fondo1.jpg">
         <section id="identificacion" >
                     <nav id="menuRegistro">
                         <ul>
-                            <li><a id="meIdentificarse" href="#">Identificarse</a></li>
+                            <li><a id="meIdentificarse" onclick="javascript:identifica(this);" href="registro.html">Identificarse</a></li>
                             <li><a id="meRegistro" href="registro.html" onclick="javascript:registra(this);">Registrarse</a></li>
                         </ul>
                     </nav>
+            <nav id="logout" style="display: none">
+                <ul>
+                    <li><a id="sesionA"></a></li>
+                    <li><a id="salida" href="index.html" onclick="javascript:salir()">Logout</a></li>
+                </ul>
+            </nav>
             </section>
         <section id="all">
             <section  id="menuTop" >                  

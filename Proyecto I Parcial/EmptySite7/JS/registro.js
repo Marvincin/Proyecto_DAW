@@ -281,6 +281,7 @@ function verificarRegistro(){
     var patron = '^[A-Z a-z]{3}-[0-9]{3,4}';
     var patron1 = '^[A-Z a-z]{3}[0-9]{3,4}';
     var tel, pla, tw, fb,div,div2,btn;
+    var opciones = document.getElementsByName("opcion");
     tel = document.getElementById("texttelf");
     tw = document.getElementById("texttwitter");
     fb = document.getElementById("textface");
@@ -288,36 +289,96 @@ function verificarRegistro(){
     if (tel.value.match(expresiontel) && tel.value != '') {
         if (fb.value.indexOf("https://www.facebook.com/") != -1 || fb.value.indexOf("http://www.facebook.com/") != -1) {
             if ((tw.value.indexOf("https://www.twitter.com/") != -1 || tw.value.indexOf("http://www.twitter.com/") != -1 || tw.value.indexOf("https://twitter.com/")) != -1) {
-                if(document.getElementsByName("opcion")[0].checked == true){
-               if (pla.value.match(patron) || (pla.value.match(patron1))) {
+                if (opciones[0].checked == true) {
+                    if (pla.value.match(patron) || (pla.value.match(patron1))) {
+                        div2 = document.createElement("div");
+                        btn = document.createElement("input");
+                        btn.setAttribute("type", "button");
+                        div2.setAttribute("class", "divdentrodiv");
+                        div2.setAttribute("style", "text-align: center");
+                        btn.setAttribute("onclick", "javascript: salirdiv(this)");
+                        btn.setAttribute("value", "Completar Registro");
+                        div2.innerHTML = "Se ha completado su registro";
+                        div2.appendChild(document.createElement("br"));
+                        div.appendChild(div2);
+                        div2.appendChild(document.createElement("br"));
+                        div2.appendChild(document.createElement("br"));
+                        div2.appendChild(btn);
+                        div.style.display = "block";
+                    }
+                    else {
                     div2 = document.createElement("div");
                     btn = document.createElement("input");
-                    btn.setAttribute("type", "button");
                     div2.setAttribute("class", "divdentrodiv");
-                    div2.setAttribute("style", "text-align: center");
+                    div.setAttribute("class", "divregistro");
+                    btn.setAttribute("type", "button");
+                    btn.setAttribute("value", "Aceptar");
                     btn.setAttribute("onclick", "javascript: salirdiv(this)");
-                    btn.setAttribute("value", "Completar Registro");
-                    div2.innerHTML = "Se ha completado su registro";
+                    div2.setAttribute("style", "text-align: center");
+                    div2.innerHTML = "Complete correctamente los campos";
+                    div2.appendChild(document.createElement("br"));
                     div.appendChild(div2);
+                    div2.appendChild(document.createElement("br"));
+                    div2.appendChild(document.createElement("br"));
+                    div2.appendChild(btn);
                     div.style.display = "block";
                 }
-                else{
-                    div2 = document.createElement("div");
-                    btn = document.createElement("input");
-                    div2.setAttribute("class", "divdentrodiv");
-                    btn.setAttribute("type", "button");
-                    div2.setAttribute("style", "text-align: center");
-                    btn.setAttribute("onclick", "javascript: salirdiv(this)");
-                    btn.setAttribute("value", "Completar Registro");
-                    div2.innerHTML = "Se ha completado su registro";
-                    div.appendChild(div2);
-                    div.style.display = "block";
+                    
                 }
+                else {
+                        div2 = document.createElement("div");
+                        btn = document.createElement("input");
+                        div2.setAttribute("class", "divdentrodiv");
+                        btn.setAttribute("type", "button");
+                        div2.setAttribute("style", "text-align: center");
+                        btn.setAttribute("onclick", "javascript: salirdiv(this)");
+                        btn.setAttribute("value", "Completar Registro");
+                        div2.innerHTML = "Se ha completado su registro";
+                        div2.appendChild(document.createElement("br"));
+                        div.appendChild(div2);
+                        div2.appendChild(document.createElement("br"));
+                        div2.appendChild(document.createElement("br"));
+                        div2.appendChild(btn);
+                        div.style.display = "block";
+                    }
+                
             }
+            else {
+                div2 = document.createElement("div");
+                btn = document.createElement("input");
+                div2.setAttribute("class", "divdentrodiv");
+                div.setAttribute("class", "divregistro");
+                btn.setAttribute("type", "button");
+                btn.setAttribute("value", "Aceptar");
+                btn.setAttribute("onclick", "javascript: salirdiv(this)");
+                div2.setAttribute("style", "text-align: center");
+                div2.innerHTML = "Complete correctamente los campos";
+                div2.appendChild(document.createElement("br"));
+                div.appendChild(div2);
+                div2.appendChild(document.createElement("br"));
+                div2.appendChild(document.createElement("br"));
+                div2.appendChild(btn);
+                div.style.display = "block";
             }
         }
-    }
-    else {
+        else {
+            div2 = document.createElement("div");
+            btn = document.createElement("input");
+            div2.setAttribute("class", "divdentrodiv");
+            div.setAttribute("class", "divregistro");
+            btn.setAttribute("type", "button");
+            btn.setAttribute("value", "Aceptar");
+            btn.setAttribute("onclick", "javascript: salirdiv(this)");
+            div2.setAttribute("style", "text-align: center");
+            div2.innerHTML = "Complete correctamente los campos";
+            div2.appendChild(document.createElement("br"));
+            div.appendChild(div2);
+            div2.appendChild(document.createElement("br"));
+            div2.appendChild(document.createElement("br"));
+            div2.appendChild(btn);
+            div.style.display = "block";
+        }
+    }else {
         div2 = document.createElement("div");
         btn = document.createElement("input");
         div2.setAttribute("class", "divdentrodiv");
@@ -327,7 +388,11 @@ function verificarRegistro(){
         btn.setAttribute("onclick", "javascript: salirdiv(this)");
         div2.setAttribute("style", "text-align: center");
         div2.innerHTML = "Complete correctamente los campos";
+        div2.appendChild(document.createElement("br"));
         div.appendChild(div2);
+        div2.appendChild(document.createElement("br"));
+        div2.appendChild(document.createElement("br"));
+        div2.appendChild(btn);
         div.style.display = "block";
     }
 }
@@ -336,6 +401,7 @@ function salirdiv(ele){
     divdp = document.getElementById("registrocompleto");
         divdp.style.display = "none";
         divdp.style.zIndex = -1;
+        window.location = "index.html";
 }
 function habilitarCarro(e){
     if (e.value=="Si")
@@ -373,6 +439,8 @@ function registra(elemento){
     forC.appendChild(document.createElement("br"));
     forC.appendChild(boton);
     divS.appendChild(forC);
+    
+   
 }
 
 function validarNro(e) {

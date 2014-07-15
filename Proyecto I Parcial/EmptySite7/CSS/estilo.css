@@ -422,7 +422,7 @@ and (orientation : portrait) {
 
 /* PCs y portátiles ----------- */
 @media only screen
-and (min-width : 1024px) {/*1224*/
+and (min-width : 601px) {/*1224*/
 /*css de pagina inicio*/
 .fondo {
     background-image: url("../Images/f1.png");
@@ -528,7 +528,7 @@ background-attachment:fixed;
     background-image: url(../Images/fdiv.jpg);
     background-repeat: no-repeat;
     width: 100%;
-    height: 130px;
+    height: 150px;
    position: relative;    
 }
 .inde{
